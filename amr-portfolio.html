@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amr Mohamed Ramadan — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Cairo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f2744;--navy-mid:#1a3a5c;--accent:#2e86c1;--accent-light:#aed6f1;
+  --gold:#d4a847;--bg:#f7f5f0;--surface:#ffffff;--text:#1c2833;--muted:#6b7280;
+  --border:rgba(15,39,68,0.1);--card:#ffffff;--transition:0.3s ease;
+}
+.dark{
+  --bg:#0d1117;--surface:#161b22;--card:#1e2530;--text:#e6edf3;--muted:#8b949e;
+  --border:rgba(255,255,255,0.08);--navy:#1e2d3d;--navy-mid:#243447;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background var(--transition),color var(--transition)}
+.ar{display:none}.en{display:block}
+html[lang="ar"] .ar{display:block}
+html[lang="ar"] .en{display:none}
+html[lang="ar"]{direction:rtl;font-family:'Cairo',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(247,245,240,0.92);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);transition:background var(--transition)}
+.dark nav{background:rgba(13,17,23,0.92)}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--accent);letter-spacing:0.5px}
+html[lang="ar"] .nav-logo{font-family:'Cairo',sans-serif;font-weight:600}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.ctrl-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;color:var(--text);cursor:pointer;transition:all 0.2s;font-family:inherit}
+.ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 48px 80px;gap:64px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(46,134,193,0.1);color:var(--accent);font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:28px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:block;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(36px,4.5vw,58px);line-height:1.1;color:var(--text);margin-bottom:20px}
+html[lang="ar"] h1{font-family:'Cairo',sans-serif;font-weight:600;font-size:clamp(30px,4vw,50px)}
+h1 em{font-style:italic;color:var(--accent)}
+html[lang="ar"] h1 em{font-style:normal}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:36px;max-width:440px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--navy);color:#fff;padding:13px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;font-family:inherit}
+.btn-primary:hover{background:var(--navy-mid);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);padding:12px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all 0.2s;font-family:inherit}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HERO CARD */
+.hero-card-wrap{display:flex;justify-content:center}
+.hero-card{background:var(--navy);border-radius:20px;padding:36px;width:100%;max-width:360px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(46,134,193,0.15)}
+html[lang="ar"] .hero-card::before{right:auto;left:-60px}
+.avatar-circle{width:68px;height:68px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:24px;color:#fff;margin-bottom:18px;position:relative;z-index:1}
+.card-name{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:4px}
+html[lang="ar"] .card-name{font-family:'Cairo',sans-serif;font-weight:600}
+.card-title{font-size:13px;color:var(--accent-light);margin-bottom:24px}
+.card-divider{height:0.5px;background:rgba(255,255,255,0.12);margin-bottom:20px}
+.card-info{display:flex;flex-direction:column;gap:12px}
+.card-row{display:flex;align-items:flex-start;gap:10px}
+.card-icon{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.card-label{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:1px}
+.card-val{font-size:13px;color:rgba(255,255,255,0.85);font-weight:500}
+.card-badge{margin-top:20px;display:inline-flex;align-items:center;gap:6px;background:rgba(212,168,71,0.15);border:0.5px solid var(--gold);color:var(--gold);font-size:11px;font-weight:500;padding:5px 12px;border-radius:20px}
+
+/* SECTIONS */
+section{padding:88px 48px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,3vw,38px);color:var(--text);line-height:1.15;margin-bottom:44px}
+html[lang="ar"] .section-title{font-family:'Cairo',sans-serif;font-weight:600}
+
+/* EXPERIENCE */
+.exp-section{background:var(--surface);transition:background var(--transition)}
+.exp-grid{display:flex;flex-direction:column;max-width:760px}
+.exp-item{display:grid;grid-template-columns:130px 1fr;gap:0 28px;padding:28px 0;border-bottom:0.5px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-date{font-size:12px;color:var(--muted);padding-top:4px;font-weight:500;line-height:1.6}
+.exp-role{font-size:16px;font-weight:500;color:var(--text);margin-bottom:4px}
+.exp-company{font-size:13px;color:var(--accent);margin-bottom:12px;font-weight:500}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:6px}
+.exp-bullets li{font-size:14px;color:var(--muted);padding-inline-start:16px;position:relative}
+.exp-bullets li::before{content:'–';position:absolute;inset-inline-start:0;color:var(--accent)}
+.skill-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(46,134,193,0.1);color:var(--accent);font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;margin-top:10px}
+
+/* CERTS */
+.certs-section{background:var(--bg);transition:background var(--transition)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;max-width:1100px}
+.cert-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:22px;transition:transform 0.2s,box-shadow 0.2s,background var(--transition)}
+.cert-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(15,39,68,0.08)}
+.dark .cert-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.3)}
+.cert-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.cert-name{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;line-height:1.4}
+.cert-issuer{font-size:12px;color:var(--muted);margin-bottom:10px}
+.cert-type{display:inline-block;font-size:10px;font-weight:500;padding:2px 8px;border-radius:10px;margin-bottom:8px}
+.cert-type.achievement{background:rgba(46,134,193,0.1);color:var(--accent)}
+.cert-type.participation{background:rgba(212,168,71,0.1);color:var(--gold)}
+.cert-date{font-size:11px;font-weight:500;color:var(--accent);letter-spacing:0.3px}
+
+/* SKILLS */
+.skills-section{background:var(--navy);transition:background var(--transition)}
+.skills-section .section-label{color:var(--accent-light)}
+.skills-section .section-title{color:#fff}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;max-width:900px}
+.skill-group{background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px}
+.skill-group-title{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-light);margin-bottom:14px}
+html[lang="ar"] .skill-group-title{letter-spacing:0}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+.skill-tag{font-size:12px;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.08);padding:4px 10px;border-radius:20px}
+
+/* CONTACT */
+.contact-section{background:var(--surface);text-align:center;transition:background var(--transition)}
+.contact-section .section-title{margin-bottom:14px}
+.contact-sub{font-size:15px;color:var(--muted);margin-bottom:32px}
+.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:8px;border:1px solid var(--border);font-size:14px;font-weight:500;color:var(--text);text-decoration:none;background:var(--bg);transition:all 0.2s;font-family:inherit}
+.contact-link:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+footer{padding:20px 48px;border-top:0.5px solid var(--border);text-align:center;font-size:12px;color:var(--muted);background:var(--bg);transition:background var(--transition)}
+
+@media(max-width:768px){
+  nav{padding:14px 16px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:90px 20px 60px;gap:36px}
+  section{padding:60px 20px}
+  .exp-item{grid-template-columns:1fr}
+  .exp-date{margin-bottom:6px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="en">Amr Ramadan</span>
+    <span class="ar">عمرو رمضان</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#experience"><span class="en">Experience</span><span class="ar">الخبرات</span></a></li>
+    <li><a href="#certifications"><span class="en">Certifications</span><span class="ar">الشهادات</span></a></li>
+    <li><a href="#skills"><span class="en">Skills</span><span class="ar">المهارات</span></a></li>
+    <li><a href="#contact"><span class="en">Contact</span><span class="ar">تواصل</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="ctrl-btn" onclick="toggleLang()">
+      <span class="en">🌐 العربية</span>
+      <span class="ar">🌐 English</span>
+    </button>
+    <button class="ctrl-btn" onclick="toggleDark()" id="darkBtn">🌙</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-tag">
+      <span class="en">Available for opportunities</span>
+      <span class="ar">متاح للفرص</span>
+    </div>
+    <h1>
+      <span class="en">Medical Lab<br><em>Sciences</em><br>Student</span>
+      <span class="ar">طالب <em>علوم</em><br>مختبرات طبية</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="en">Combining clinical laboratory training with hands-on pharmacy and patient-care experience. Building toward a future in medical diagnostics and health technology.</span>
+      <span class="ar">أجمع بين التدريب المختبري السريري والخبرة العملية في الصيدليات ورعاية المرضى. أسعى نحو مستقبل في التشخيص الطبي وتكنولوجيا الصحة.</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">
+        <span class="en">Get in touch</span><span class="ar">تواصل معي</span>
+      </a>
+      <a href="#experience" class="btn-outline">
+        <span class="en">View experience</span><span class="ar">اعرف خبراتي</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-card-wrap">
+    <div class="hero-card">
+      <div class="avatar-circle">A</div>
+      <div class="card-name">
+        <span class="en">Amr Mohamed Ramadan</span>
+        <span class="ar">عمرو محمد رمضان</span>
+      </div>
+      <div class="card-title">
+        <span class="en">Medical Lab Sciences · Pharmacy Assistant</span>
+        <span class="ar">علوم مختبرات طبية · مساعد صيدلي</span>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-info">
+        <div class="card-row">
+          <div class="card-icon">📍</div>
+          <div>
+            <div class="card-label"><span class="en">Location</span><span class="ar">الموقع</span></div>
+            <div class="card-val"><span class="en">Mansoura, Egypt</span><span class="ar">المنصورة، مصر</span></div>
+          </div>
+        </div>
+        <div class="card-row">
+          <div class="card-icon">🎓</div>
+          <div>
+            <div class="card-label"><span class="en">Institute</span><span class="ar">المعهد</span></div>
+            <div class="card-val"><span class="en">Mansoura Technical Institute of Health</span><span class="ar">المعهد الفني الصحي بالمنصورة</span></div>
+          </div>
+        </div>
+        <div class="card-row">
+          <div class="card-icon">💊</div>
+          <div>
+            <div class="card-label"><span class="en">Currently</span><span class="ar">حالياً</span></div>
+            <div class="card-val"><span class="en">Pharmacy Assistant — Dr. Alaa Hamada</span><span class="ar">مساعد صيدلي — صيدلية د. علاء حمادة</span></div>
+          </div>
+        </div>
+        <div class="card-row">
+          <div class="card-icon">🔗</div>
+          <div>
+            <div class="card-label">LinkedIn</div>
+            <div class="card-val">linkedin.com/in/amr-zone</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-badge">✦ First Aid & CPR Certified · Mar 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-section" id="experience">
+  <div class="section-label"><span class="en">Work History</span><span class="ar">السيرة المهنية</span></div>
+  <div class="section-title"><span class="en">Experience</span><span class="ar">الخبرات</span></div>
+  <div class="exp-grid">
+
+    <div class="exp-item">
+      <div class="exp-date">
+        <span class="en">Nov 2025<br>Present</span>
+        <span class="ar">نوفمبر 2025<br>حتى الآن</span>
+      </div>
+      <div>
+        <div class="exp-role"><span class="en">Pharmacy Assistant</span><span class="ar">مساعد صيدلي</span></div>
+        <div class="exp-company"><span class="en">Dr. Alaa Hamada Pharmacy — Met Adlan, Dekernes</span><span class="ar">صيدلية د. علاء حمادة — ميت عدلان، دكرنس</span></div>
+        <ul class="exp-bullets">
+          <li><span class="en">Accurate medication dispensing with systematic double-checking protocols</span><span class="ar">صرف الأدوية بدقة باستخدام بروتوكولات مراجعة مزدوجة</span></li>
+          <li><span class="en">Organized and tracked inventory, reducing shortages and improving stock visibility</span><span class="ar">تنظيم وتتبع المخزون وتقليل النقص وتحسين الرؤية الإجمالية</span></li>
+          <li><span class="en">Administered injections and provided clear patient guidance in high-volume environment</span><span class="ar">إعطاء الحقن وتقديم إرشادات واضحة للمرضى في بيئة عمل مكثفة</span></li>
+        </ul>
+        <div class="skill-badge">💉 <span class="en">Injection Administration</span><span class="ar">إعطاء الحقن</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">
+        <span class="en">Mar 2022<br>Nov 2023</span>
+        <span class="ar">مارس 2022<br>نوفمبر 2023</span>
+      </div>
+      <div>
+        <div class="exp-role"><span class="en">Retail Cashier & Customer Service</span><span class="ar">كاشير ومسؤول خدمة عملاء</span></div>
+        <div class="exp-company"><span class="en">Abu Kareem Supermarket — Met Adlan, Dekernes</span><span class="ar">سوبر ماركت أبو كريم — ميت عدلان، دكرنس</span></div>
+        <ul class="exp-bullets">
+          <li><span class="en">Delivered efficient customer service in a high-traffic retail environment</span><span class="ar">تقديم خدمة عملاء فعّالة في بيئة تجزئة ذات حركة مرتفعة</span></li>
+          <li><span class="en">Managed daily cash transactions with consistent accuracy</span><span class="ar">إدارة المعاملات النقدية اليومية بدقة متواصلة</span></li>
+          <li><span class="en">Coordinated with team during peak hours to maintain smooth operations</span><span class="ar">التنسيق مع الفريق خلال أوقات الذروة للحفاظ على سير العمل</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-section" id="certifications">
+  <div class="section-label"><span class="en">Training & Credentials</span><span class="ar">التدريب والمؤهلات</span></div>
+  <div class="section-title"><span class="en">Certifications</span><span class="ar">الشهادات</span></div>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fef3c7">❤️</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">First Aid & CPR (18h)</span><span class="ar">الإسعافات الأولية والإنعاش القلبي (18 ساعة)</span></div>
+      <div class="cert-issuer"><span class="en">Middle East First Responders & Eldahlia Medical Syndicate</span><span class="ar">مسعفين الشرق الأوسط ونقابة أطباء الدقهلية</span></div>
+      <div class="cert-date">Mar 2026</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#eff6ff">💻</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">Full HTML for Beginners</span><span class="ar">HTML الكامل للمبتدئين</span></div>
+      <div class="cert-issuer">M3aarf · Cert #2551625664</div>
+      <div class="cert-date">Oct 2023 · 5h</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#eff6ff">🎨</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">Learn CSS in Arabic</span><span class="ar">تعلم CSS بالعربية</span></div>
+      <div class="cert-issuer">M3aarf · Cert #2551626216</div>
+      <div class="cert-date">Mar 2024 · 7.7h</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#eff6ff">🌐</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">Web Programming</span><span class="ar">برمجة صفحات الويب</span></div>
+      <div class="cert-issuer">M3aarf · Cert #2551622883</div>
+      <div class="cert-date">Aug 2023 · 2h</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#f0fdf4">🖌️</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">Canva Design</span><span class="ar">التصميم على Canva</span></div>
+      <div class="cert-issuer">M3aarf · Cert #255162948</div>
+      <div class="cert-date">Aug 2023 · 1h</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#f5f3ff">📐</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">User Experience Design</span><span class="ar">تصميم تجربة المستخدم UX</span></div>
+      <div class="cert-issuer">Edraak — Ahmad Hawari</div>
+      <div class="cert-date">Oct 2025</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fff7ed">🤖</div>
+      <span class="cert-type achievement"><span class="en">Achievement</span><span class="ar">إنجاز</span></span>
+      <div class="cert-name"><span class="en">Robot Maker — Robotics & Electronics</span><span class="ar">صانع روبوت — الروبوتيكس والإلكترونيات</span></div>
+      <div class="cert-issuer">Edraak — Eng. Mahmoud Nader</div>
+      <div class="cert-date">Oct 2025 · 3h</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fef9c3">📱</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Social Media Management Principles</span><span class="ar">مبادئ إدارة وسائل التواصل الاجتماعي</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Oct 2025 · 2h 2min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fce7f3">📣</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Social Media Marketing Fundamentals</span><span class="ar">أساسيات التسويق عبر وسائل التواصل</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Aug 2025 · 1h 32min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fef9c3">🎬</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">CapCut Video Editing</span><span class="ar">مونتاج الفيديو بـ CapCut</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 47min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fff1f2">⏱️</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Time Management Skills</span><span class="ar">مهارات إدارة الوقت</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 1h 36min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fef3c7">💰</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Personal Financial Planning</span><span class="ar">التخطيط المالي الشخصي</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 1h 27min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#ecfdf5">🎯</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Fundamentals of Art Direction</span><span class="ar">أساسيات الإخراج الفني</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Oct 2025 · 38min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fce7f3">🖼️</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Professional Design with Canva</span><span class="ar">التصميم الاحترافي بـ Canva</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 1h 35min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#eff6ff">🏷️</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Logo Design Secrets</span><span class="ar">أسرار تصميم الشعارات</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 28min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#ecfdf5">🎬</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">The Visual Content Industry</span><span class="ar">صناعة المحتوى المرئي</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 43min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fff7ed">💡</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Low Budget Content Creation</span><span class="ar">إنشاء محتوى بميزانية محدودة</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Sep 2025 · 16min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#f0fdf4">🚀</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Startup Marketing</span><span class="ar">التسويق للشركات الناشئة</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Aug 2025 · 16min</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fef9c3">🎨</div>
+      <span class="cert-type participation"><span class="en">Participation</span><span class="ar">مشاركة</span></span>
+      <div class="cert-name"><span class="en">Color Theory</span><span class="ar">نظرية الألوان</span></div>
+      <div class="cert-issuer">Yanfa'a</div>
+      <div class="cert-date">Aug 2025 · 23min</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label"><span class="en">Capabilities</span><span class="ar">القدرات</span></div>
+  <div class="section-title"><span class="en">Skills</span><span class="ar">المهارات</span></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="en">Laboratory & Clinical</span><span class="ar">مختبر وسريري</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag"><span class="en">Lab Procedures</span><span class="ar">إجراءات مختبرية</span></span>
+        <span class="skill-tag"><span class="en">Sample Handling</span><span class="ar">معالجة العينات</span></span>
+        <span class="skill-tag"><span class="en">Infection Control</span><span class="ar">مكافحة العدوى</span></span>
+        <span class="skill-tag"><span class="en">Quality Control</span><span class="ar">ضبط الجودة</span></span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="en">Pharmacy & Patient Care</span><span class="ar">صيدلة ورعاية مرضى</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag"><span class="en">Medication Dispensing</span><span class="ar">صرف الأدوية</span></span>
+        <span class="skill-tag"><span class="en">Injection Administration</span><span class="ar">إعطاء الحقن</span></span>
+        <span class="skill-tag"><span class="en">First Aid & CPR</span><span class="ar">إسعافات أولية</span></span>
+        <span class="skill-tag"><span class="en">Inventory Management</span><span class="ar">إدارة المخزون</span></span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="en">Technical & Digital</span><span class="ar">تقني ورقمي</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML & CSS</span>
+        <span class="skill-tag"><span class="en">UX Design</span><span class="ar">تصميم UX</span></span>
+        <span class="skill-tag"><span class="en">Graphic Design</span><span class="ar">تصميم جرافيك</span></span>
+        <span class="skill-tag">Robotics</span>
+        <span class="skill-tag"><span class="en">Video Editing</span><span class="ar">مونتاج</span></span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="en">Professional</span><span class="ar">مهنية</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag"><span class="en">Attention to Detail</span><span class="ar">الدقة في العمل</span></span>
+        <span class="skill-tag"><span class="en">Teamwork</span><span class="ar">العمل الجماعي</span></span>
+        <span class="skill-tag"><span class="en">Under Pressure</span><span class="ar">تحت الضغط</span></span>
+        <span class="skill-tag"><span class="en">Time Management</span><span class="ar">إدارة الوقت</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label"><span class="en">Get in touch</span><span class="ar">تواصل معي</span></div>
+  <div class="section-title"><span class="en">Contact</span><span class="ar">التواصل</span></div>
+  <p class="contact-sub">
+    <span class="en">Open to laboratory internships, clinical training, and part-time healthcare roles in Egypt.</span>
+    <span class="ar">أرحب بفرص التدريب المختبري والتدريب السريري والعمل الجزئي في القطاع الصحي بمصر.</span>
+  </p>
+  <div class="contact-links">
+    <a href="mailto:amr.ramadan.zone@gmail.com" class="contact-link">✉ amr.ramadan.zone@gmail.com</a>
+    <a href="https://linkedin.com/in/amr-zone" class="contact-link">🔗 linkedin.com/in/amr-zone</a>
+    <a href="tel:+201060382459" class="contact-link">📞 (+20) 010 6038 2459</a>
+  </div>
+</section>
+
+<footer>
+  <span class="en">© 2026 Amr Mohamed Ramadan · Mansoura, Egypt</span>
+  <span class="ar">© 2026 عمرو محمد رمضان · المنصورة، مصر</span>
+</footer>
+
+<script>
+function toggleLang(){
+  const html=document.documentElement;
+  if(html.lang==='en'){html.lang='ar';html.dir='rtl'}
+  else{html.lang='en';html.dir='ltr'}
+}
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  const btn=document.getElementById('darkBtn');
+  btn.textContent=document.body.classList.contains('dark')?'☀️':'🌙';
+}
+</script>
+</body>
+</html>
